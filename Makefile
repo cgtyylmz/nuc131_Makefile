@@ -126,11 +126,6 @@ $(BUILD_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 flash: all
-	sudo openocd -f "/home/cagatay/gitFiles/OpenOCD-Nuvoton/tcl/interface/nulink.cfg" -f "/home/cagatay/gitFiles/OpenOCD-Nuvoton/tcl/target/numicroM0.cfg" -c "program ./build/main.bin verify reset exit"
+	sudo openocd -f "tcl/interface/nulink.cfg" -f "tcl/target/numicroM0.cfg" -c "program ./build/main.bin verify reset exit"
 clean:
 	rm -fR $(BUILD_DIR)
-
-test:
-	@echo $(OBJ_FILES)
-	@echo "=========================="
-	@echo $(SRC_FILES)
